@@ -1,0 +1,26 @@
+layout {
+      pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+      }
+
+      
+      pane stacked=true {
+          pane {
+            command "nvim"
+          }
+          pane {
+            name "Working Terminal"
+            focus true
+          }
+          pane {
+            name "Chaos Terminal"
+          }
+          pane {
+            command "yazi"
+          }
+        } 
+
+    pane size=1 borderless=true {
+        plugin location="zellij:status-bar"
+      }
+  }

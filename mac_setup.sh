@@ -1,5 +1,14 @@
 #!/bin/bash
 
+mkdir ~/.config/zsh_backups
+cp ~/.zshrc ~/.config/zsh_backups
+mv ~/.config/zsh_backups/.zshrc dotzshrc
+cp ~/.zshenv ~/.config/zsh_backups
+mv ~/.config/zsh_backups/.zshenv dotzshenv
+
+mv ~/dotfiles/configs/.zshrc ~/
+mv ~/dotfiles/configs/.zshenv ~/
+
 ## Install Homebrew Package Manager
 ./install_brew.sh
 
@@ -68,5 +77,17 @@
 ## Install eza
 ./install_eza.sh
 
+######################
+##### .CONFIGS #######
+######################
+
+mv ~/dotfiles/configs/envman/ ~/.config/
+mv ~/dotfiles/configs/eza/ ~/.config/
+mv ~/dotfiles/configs/fontconfig/ ~/.config/
+mv ~/dotfiles/configs/nvim/ ~/.config/
+mv ~/dotfiles/configs/gh/ ~/.config/
+mv ~/dotfiles/configs/ghostty/ ~/.config/
+mv ~/dotfiles/configs/zellij/ ~/.config/
+mv ~/dotfiles/configs/Oh_My_Posh/ ~/
 echo "run opam init to complete set up of ocaml"
 echo "remember to log in to Github CLI"

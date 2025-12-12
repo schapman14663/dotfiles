@@ -1,0 +1,185 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+final_space = true
+auto_upgrade = true
+version = 3
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+
+    [[blocks.segments]]
+    type = "shell"
+    style = "plain"
+    foreground = "#22E529"
+    template = "\u256d\u2500 \uf120 {{ .Name }} "
+
+    [properties.mapped_shell_names]
+    pwsh = "PS"
+    bash = "Bash"
+    zsh = "zsh"
+
+    [[blocks.segments]]
+    type = "session"
+    style = "plain"
+    foreground = "#F59574"
+    template = "\uf007 {{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }} "
+
+    [[blocks.segments]]
+    type = "path"
+    style = "plain"
+    foreground = "#F41D99"
+    template = "{{ .Path }} "
+
+    [blocks.segments.properties]
+    folder_icon = "\uf07b .."
+    folder_separator_icon = "/"
+    home_icon = "~"
+    style = "agnoster"
+
+    [[blocks.segments]]
+    type = "git"
+    style = "plain"
+    foreground = "#DD7BDC"
+    template = "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus}} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf0c7 {{ .StashCount }}{{ end }}"
+    foreground_templates = [
+    "{{ if or (.Working.Change) (.Staging.Changed) }}#F2E86D{{ end }}",
+    "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#F2E86D{{ end }}",
+    "{{ if gt .Ahead 0 }}#A39EC4{{ end }}",
+    "{{ if gt .Behind 0 }}#A39EC4{{ end }}"
+    ]
+
+    [blocks.segments.properties]
+    fetch_status = true
+    fetch_upstream_icon = true
+    source = "cli"
+    
+    [[blocks.segments]]
+    type = "elixir"
+    style = "plain"
+    foreground = "#9744EE"
+    template = "  {{ .Full }} "
+
+    [[blocks.segments]]
+    type = "go"
+    style = "plain"
+    foreground = "#73EFF0" 
+    template = " Golang {{ .Full }} "
+
+    [[blocks.segments]]
+    type = "java"
+    style = "plain"
+    foreground = "#BE2D26"
+    template = " \ue256 {{ .Full }}"
+
+    [[blocks.segments]]
+    type = "lua"
+    style = "plain"
+    foreground = "#055FFCF"
+    template = "  {{ .Full }} "
+
+    [[blocks.segments]]
+    type = "python"
+    style = "plain"
+    foreground = "#F2E86D"
+    template = " \ue235 {{ .Full }}"
+
+    [[blocks.segments]]
+    type = "rust"
+    style = "plain"
+    foreground = "#FF5C00"
+    template = " \uf085 {{ .Full }}"
+    
+    [[blocks.segments]]
+    type = "zig"
+    style = "plain"
+    foreground = "#F9E664"
+    template = "  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+   
+[[blocks]]
+type = "prompt"
+alignment = "right"
+
+    [[blocks.segments]]
+    type = "battery"
+    style = "plain"
+    foreground = "#9892F1"
+    template = " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}\uf295 "
+    foreground_templates = [
+        "{{if eq \"Charging\" .State.String}}#40c4ff{{end}}",
+        "{{if eq \"Discharging\" .State.String}}#ff5722{{end}}",
+        "{{if eq \"Full\" .State.String}}#9892F1{{end}}"
+    ]
+
+    [blocks.segments.properties]
+    charged_icon = "\uf06c "
+    charging_icon = "\ue55b "
+    discharging_icon = "\ue57a "
+
+    [[blocks.segments]]
+    type = "time"
+    style = "plain"
+    foreground = "#DD7BDC"
+    template = "{{ .CurrentDate | date \" Mon \" }}"
+
+    [[blocks.segments]]
+    type = "time"
+    style = "plain"
+    foreground = "#F41D99"
+    template = "{{ .CurrentDate | date \" 02 \" }}"
+
+    [[blocks.segments]]
+    type = "time"
+    style = "plain"
+    foreground = "#F41D99"
+    template = "{{ .CurrentDate | date \" Jan \" }}"
+
+    [[blocks.segments]]
+    type = "time"
+    style = "plain"
+    foreground = "#F41D99"
+    template = "{{ .CurrentDate | date \" 06 \" }}"
+
+    [[blocks.segments]]
+    type = "time"
+    style = "plain"
+    foreground = "#F59574"
+    template = "{{ .CurrentDate | date \" 15:04:05 \" }}"
+
+    [[blocks.segments]]
+    type = "time"
+    style = "plain"
+    foreground = "#22E529"
+    template = "{{ .CurrentDate | date \" UTC \" }}"
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+    
+    [[blocks.segments]]
+    type = "os"
+    style = "plain"
+    foreground = "#E9E9E9"
+    template = "\u2570\u2500 {{ if .WSL  }}WSL at {{ end }}{{.Icon}}"
+
+    [blocks.segments.properties]
+    linux = "\uf17c "
+    macos = "MacOS "
+    windows = "Win "
+
+    [[blocks.segments]]
+    type = "status"
+    style = "plain" 
+    foreground = "#31D07B" 
+    template = "ALL OK \uf004 "
+    foreground_templates = ["{{ if .Error}} ERROR #BE2d26{{ end }}"]
+
+    [blocks.segments.properties]
+    always_enabled = true
+    status_template = "{{ if eq .Code 0 }} \uf00c{{else}} \uf071 {{ reason .Code }}{{ end }}"
+    
+    [[blocks.segments]]
+    type = "text"
+    style = "plain"
+    foreground = "#DD7BDC"
+    template = " \uf054 "
