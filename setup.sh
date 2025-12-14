@@ -49,7 +49,7 @@ mv ~/dotfiles/configs/.zshenv ~/
 ## Install Zig
 ./install_zig.sh
 
-## Install Docker (include LazyDocker)
+## Install Docker (includes LazyDocker and Kubernetes)
 ./install_docker.sh
 
 ## Install OCaml

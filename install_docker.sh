@@ -8,6 +8,8 @@ case $OS in
   brew install --cask docker
   echo "Installing LazyDocker"
   brew install jesseduffield/lazydocker/lazydocker
+  echo "Installing Kubernetes CLI"
+  brew install kubectl
   ;;
 'Darwin')
   OS='Mac'
@@ -15,5 +17,7 @@ case $OS in
   brew install --cask docker
   echo "Installing LazyDocker via Homebrew"
   brew install jesseduffield/lazydocker/lazydocker
+  echo "Installing Kubernetes CLI"
+  brew install kubectl
   ;;
 esac
