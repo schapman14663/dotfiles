@@ -1,8 +1,0 @@
-title = " "
-fullscreen = true
-macos-non-native-fullscreen = true
-maximize = true
-
-macos-option-as-alt = left
-
-keybind = global:super+s=toggle_secure_input
