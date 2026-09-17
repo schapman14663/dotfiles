@@ -44,3 +44,6 @@ sudo apt install -y eza``
 22. Installed uv ``curl -LsSf https://astral.sh/uv/install.sh | sh``
 23. Installed Go ( go.dev/doc/install )
 24. Installed Tauri ( tauri.app )
+25. Installed Node.js
+26. Installed Calibre-Books epub reader ``sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin``
+
